@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  postgres:
+    env_file: .env
+    image: postgres:14.1-alpine
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  pgadmin4:
+    image: dpage/pgadmin4:latest
+    restart: always
+    ports:
+      - '443:80'
+    environment:
+      - USER=postgres
+      - PGADMIN_DEFAULT_PASSWORD=postgres
+      - PGADMIN_DEFAULT_EMAIL=none@none.none
+
+volumes:
+  db:
+    driver: local

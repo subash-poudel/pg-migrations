@@ -1,0 +1,22 @@
+{
+  "name": "pg-migrations",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "knex": "^2.3.0",
+    "pg": "^8.8.0",
+    "pg-connection-string": "^2.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
