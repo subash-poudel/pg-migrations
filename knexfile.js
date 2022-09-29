@@ -1,13 +1,7 @@
-// Update with your config settings.
 const env = require("./src/config");
-const parse = require("pg-connection-string").parse;
-
-// console.log(env);
 
 const { dbUser, dbPassword, dbPort, dbHost, dbName, dbSsl, apiPort } = env;
 const conString = `postgres://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/${dbName}`;
-console.log(conString);
-const pgconfig = parse(conString);
 
 
 /**
@@ -15,14 +9,14 @@ const pgconfig = parse(conString);
  */
 const migration = {
   client: "postgresql",
-  production: {
+  development: {
     client: "postgresql",
     connection: {
-      host: '127.0.0.1',
-      port: dbPort,
-      user: dbUser,
-      password: dbPassword,
-      database: "testing",
+      user: 'postgres',
+      password: 'postgres',
+      port: '5432',
+      host: 'localhost',
+      database: 'testing'
     },
     pool: {
       min: 2,
@@ -33,7 +27,5 @@ const migration = {
     },
   },
 };
-
-console.log(migration);
 
 module.exports = migration;
