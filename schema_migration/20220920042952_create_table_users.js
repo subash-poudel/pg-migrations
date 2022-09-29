@@ -17,7 +17,7 @@ exports.up = function (knex, schemaName) {
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.down = function (knex) {
+exports.down = function (knex, schemaName) {
   return knex.raw(
     `
     drop table ${schemaName}.app_users;
